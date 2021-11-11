@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
-import { Locacao } from '../src/dtos';
+import '../App.css';
+import { Locacao } from '../dtos';
 
-function App() {
+function RetornoLocacoes() {
   const [dados, setDados] = useState<Locacao>();
   const [locacao, setLocacao] = useState('90000000');
   const [url, setUrl] = useState('');
@@ -65,4 +65,4 @@ function App() {
   );
 }
 
-export default App;
+export default RetornoLocacoes;
