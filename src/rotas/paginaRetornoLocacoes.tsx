@@ -3,7 +3,7 @@ import { Locacao } from '../dtos';
 
 function RetornoLocacoes() {
   const [dados, setDados] = useState<Locacao[]>();
-  const url = 'https://airbnb-clone-desafio.herokuapp.com/api/locacao/capacidade/2';
+  const url = 'https://airbnb-clone-desafio.herokuapp.com/api/locacao';
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState(false);
 
@@ -33,8 +33,19 @@ function RetornoLocacoes() {
       {dados && dados!.map((dado) => 
         <li>
           <h4>
-            {dado.locacao_nome}
-            {dado.cep}
+          <div>
+            <p>{dado.locacao_nome}</p>
+            <p>{dado.descricao_longa}</p>
+            <p>{dado.descricao_curta}</p>
+            <p>Endereço: {
+              dado.uf + dado.localidade + dado.bairro + dado.logradouro + dado.complemento + dado.cep}</p>
+            <p>Valor: {dado.preco}</p>
+            <p>Quantidade de pessoas: {dado.capacidade}</p>
+            <p>Informações do proprietário: </p>
+            <p>Nome: {dado.proprietario.nome}</p>
+            <p>E-mail: {dado.proprietario.email}</p>
+            <p>Telefone: {dado.proprietario.phone}</p>
+            </div>
           </h4>
         </li>
       )}
@@ -46,15 +57,15 @@ export default RetornoLocacoes;
 
 
 /* <div>
-<p>{dados.locacao_nome}</p>
-<p>{dados.descricao_longa}</p>
-<p>{dados.descricao_curta}</p>
+<p>{dado.locacao_nome}</p>
+<p>{dado.descricao_longa}</p>
+<p>{dado.descricao_curta}</p>
 <p>Endereço: {
-  dados.uf + dados.localidade + dados.bairro + dados.logradouro + dados.complemento + dados.cep}</p>
-<p>Valor: {dados.preco}</p>
-<p>Quantidade de pessoas: {dados.capacidade}</p>
+  dados.uf + dado.localidade + dado.bairro + dado.logradouro + dado.complemento + dado.cep}</p>
+<p>Valor: {dado.preco}</p>
+<p>Quantidade de pessoas: {dado.capacidade}</p>
 <p>Informações do proprietário: </p>
-<p>Nome: {dados.proprietario.nome}</p>
-<p>E-mail: {dados.proprietario.email}</p>
-<p>Telefone: {dados.proprietario.phone}</p>
+<p>Nome: {dado.proprietario.nome}</p>
+<p>E-mail: {dado.proprietario.email}</p>
+<p>Telefone: {dado.proprietario.phone}</p>
 </div> */
