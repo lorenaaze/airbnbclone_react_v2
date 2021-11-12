@@ -13,6 +13,7 @@ import FiltroUf from './rotas/paginaFiltroUf';
 import FiltroLocalidade from './rotas/paginaFiltroLocalidade';
 import FiltroCapacidade from './rotas/paginaFiltroCapacidade';
 import FiltroPreco from './rotas/paginaFiltroPreco';
+import FiltroOfertas from './rotas/paginaFiltroOfertas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<PaginaInicial/>}/>
+        <Route path="/ofertas" element={<>}/>
         <Route path="locacao" element={<RetornoLocacoes/>}/>
           <Route path="uf/:uf" element={<FiltroUf/>}/>
           <Route path="localidade/:localidade" element={<FiltroLocalidade/>}/>
