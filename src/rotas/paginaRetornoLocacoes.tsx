@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Locacao } from '../dtos';
+import LocacaoCard from '../containers/PaginaOfertas/LocacaoCard'
+import { Card } from 'react-bootstrap';
 
 function RetornoLocacoes() {
   const [dados, setDados] = useState<Locacao[]>();
@@ -29,25 +31,13 @@ function RetornoLocacoes() {
 
   return (
     <>
-      {console.log(typeof(dados))};
+      {console.log(typeof(dados))}
       {dados && dados!.map((dado) => 
-        <li>
-          <h4>
-          <div>
-            <p>{dado.locacao_nome}</p>
-            <p>{dado.descricao_longa}</p>
-            <p>{dado.descricao_curta}</p>
-            <p>Endereço: {
-              dado.uf + dado.localidade + dado.bairro + dado.logradouro + dado.complemento + dado.cep}</p>
-            <p>Valor: {dado.preco}</p>
-            <p>Quantidade de pessoas: {dado.capacidade}</p>
-            <p>Informações do proprietário: </p>
-            <p>Nome: {dado.proprietario.nome}</p>
-            <p>E-mail: {dado.proprietario.email}</p>
-            <p>Telefone: {dado.proprietario.phone}</p>
-            </div>
-          </h4>
-        </li>
+        <ul>
+          <Card>
+           <LocacaoCard locacao_nome={dado.locacao_nome} uf={dado.uf} localidade={dado.localidade} bairro={dado.bairro} logradouro={dado.logradouro} preco={dado.preco} capacidade={dado.capacidade} phone={dado.proprietario.phone}/>
+          </Card>
+        </ul>
       )}
     </>
   );
