@@ -18,3 +18,4 @@ export interface Locacao {
     }
     ultimo_update: Date
 }
+
