@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Locacao } from '../dtos';
 import LocacaoCard from '../containers/PaginaOfertas/LocacaoCard'
 import { Card } from 'react-bootstrap';
+import { FiltroOfertas } from './paginaFiltroOfertas';
 
 function RetornoLocacoes() {
   const [dados, setDados] = useState<Locacao[]>();
@@ -31,6 +32,7 @@ function RetornoLocacoes() {
 
   return (
     <>
+      <FiltroOfertas/>
       {console.log(typeof(dados))}
       {dados && dados!.map((dado) => 
         <ul>

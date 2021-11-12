@@ -23,7 +23,6 @@ ReactDOM.render(
       <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<PaginaInicial/>}/>
-        <Route path="ofertas" element={<FiltroOfertas/>}/>
           <Route path="locacao" element={<RetornoLocacoes/>}/>
             <Route path="uf/:uf" element={<FiltroUf/>}/>
             <Route path="localidade/:localidade" element={<FiltroLocalidade/>}/>

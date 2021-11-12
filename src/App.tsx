@@ -14,7 +14,7 @@ function App() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link as={NavLink} to="/">Página inicial</Nav.Link>
-                <Nav.Link as={NavLink} to="/ofertas">Veja nossas ofertas</Nav.Link>
+                <Nav.Link as={NavLink} to="/locacao">Veja nossas ofertas</Nav.Link>
                 <Nav.Link as={NavLink} to="/reserva">Faça sua reserva</Nav.Link>
                 <Nav.Link as={NavLink} to="/cadastro">Seja um anfitrião</Nav.Link>
               </Nav>
