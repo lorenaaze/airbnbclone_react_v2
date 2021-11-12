@@ -13,6 +13,7 @@ import FiltroUf from './rotas/paginaFiltroUf';
 import FiltroLocalidade from './rotas/paginaFiltroLocalidade';
 import FiltroCapacidade from './rotas/paginaFiltroCapacidade';
 import FiltroPreco from './rotas/paginaFiltroPreco';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render(
