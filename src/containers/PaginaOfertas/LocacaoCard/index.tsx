@@ -23,7 +23,7 @@ function LocacaoCard( {locacao_nome, uf, localidade, bairro, logradouro, preco, 
       <>
       <CardHeader>
         <Card>
-          <Row xs={1} md={2} className="g-4">
+          <Row xs={1} md={2} className="g-1">
             <Card.Img  style={{ width: '300px' }} src={ backgroundTheme} alt="Imagem do Tema" />
               <Card.Body>
                 <Card.Text>
