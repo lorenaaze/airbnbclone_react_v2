@@ -32,7 +32,6 @@ ReactDOM.render(
         <Route path="cadastro" element={<Cadastro/>}/>
         <Route path="*" element={<PaginaNaoEncontrada/>}/>
       </Route>
-
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
