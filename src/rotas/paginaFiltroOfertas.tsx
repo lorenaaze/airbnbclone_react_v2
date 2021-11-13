@@ -1,12 +1,15 @@
+import React, { useEffect, useState } from 'react';
 import { InputGroup, Dropdown, FormControl, DropdownButton } from 'react-bootstrap';
 import { NavLink, Outlet } from 'react-router-dom';
 
-export function FiltroOfertas() {
+export function FiltroOfertas(api: string, filtro: string, value: string) {
+    
     return (
         <>
-            <h2>Busque pelo estado (UF), cidade, capacidade ou preço:</h2>
             <InputGroup className="mb-3">
-                <FormControl aria-label="Text input with dropdown button" />
+                <FormControl placeholder="Busque pelo estado (UF), cidade, capacidade ou preço:"
+                                aria-label="Busque pelo estado, cidade, capacidade ou preço:"
+                                 />
                 <DropdownButton
                     variant="outline-secondary"
                     title="Filtre por:"
