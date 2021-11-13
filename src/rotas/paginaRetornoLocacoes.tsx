@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Locacao } from '../dtos';
 import LocacaoCard from '../containers/PaginaOfertas/LocacaoCard/locacaoCard'
-import { InputGroup, Dropdown, Card, DropdownButton, Container, Form, Col, Row, Button } from 'react-bootstrap';
+import { InputGroup, Dropdown, Card, DropdownButton, Container, Form, Col, Row, Button, FormControl } from 'react-bootstrap';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FiltroOfertas } from './paginaFiltroOfertas';
 import SearchList from '../containers/searchList';
@@ -13,6 +13,7 @@ function RetornoLocacoes() {
   const [dados, setDados] = useState<Locacao[]>();
   const url = 'https://airbnb-clone-desafio.herokuapp.com/api/locacao';
   const [searchField, setSearchField] = useState("");
+  const [searchFilter, setSearchFilter] = useState("");
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState(false);
 
@@ -36,7 +37,53 @@ function RetornoLocacoes() {
     consultarLocacoes();
   }, [url]);
 
-  const filteredLocacoes = dados?.filter(
+  const onChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedOption = event.currentTarget.value;
+    setSearchFilter(selectedOption);
+    return selectedOption;
+  };
+
+
+const filteredLocacoes = dados?.filter(
+  locacao => {
+    if(onChangeHandler.toString() === 'uf'){
+      return(
+        locacao
+        .uf
+        .toLowerCase()
+        .includes(searchField.toLowerCase())
+      );
+    }
+    if(onChangeHandler.toString() === 'localidade'){
+      return(
+        locacao
+        .localidade
+        .toLowerCase()
+        .includes(searchField.toLowerCase())
+      );
+    }
+    if(onChangeHandler.toString() === 'capacidade'){
+      return(
+        locacao
+        .capacidade
+        .toString()
+        .toLowerCase()
+        .includes(searchField.toLowerCase())
+      );
+    }
+    if(onChangeHandler.toString() === 'preco'){
+      return(
+        locacao
+        .preco
+        .toString()
+        .toLowerCase()
+        .includes(searchField.toLowerCase())
+      )
+    }
+
+  });
+  
+ /* const filteredLocacoes = dados?.filter(
     locacao => {
       return (
         locacao
@@ -63,7 +110,7 @@ function RetornoLocacoes() {
         .includes(searchField.toLowerCase())
       )
     }
-  )
+  )*/
 
   const handleChange = (event: any) => {
     setSearchField(event.target.value);
@@ -81,6 +128,7 @@ function RetornoLocacoes() {
       <SearchList filteredLocacoes={dadosBusca}/>
     </Scroll>
   }
+
 
   return (
     <>
@@ -104,9 +152,10 @@ function RetornoLocacoes() {
                                   }
                                 }}
                               />*/}
-                              <input type="search" 
+                              <FormControl type="search" 
+                              aria-label="Busque pelo estado, cidade, capacidade ou preço:"
                               placeholder="Busque pelo estado (UF), cidade, capacidade ou preço:"
-                              onChange={handleChange} />
+                              onChange={handleChange}/>
                             <DropdownButton
                                 variant="outline-secondary"
                                 title="Filtre por:"
@@ -116,6 +165,12 @@ function RetornoLocacoes() {
                                 <Dropdown.Item as={NavLink} to="/locacao?capacidade/">Capacidade</Dropdown.Item>
                                 <Dropdown.Item as={NavLink} to="/locacao?preco/">Preço</Dropdown.Item>
                             </DropdownButton>
+                      <select onChange={onChangeHandler}>
+                        <option value="uf">Estado</option>
+                        <option value="localidade">Cidade</option>
+                        <option value="capacidade">Capacidade</option>
+                        <option value="preco">Preço</option>
+                      </select>
                         </InputGroup>
                     <Col className="col-xl-2">
                     </Col>
@@ -139,24 +194,6 @@ function RetornoLocacoes() {
           </ul>
           )}
     </Scroll>
- 
-    {/*  {dados && dados!.map((dado) => 
-          {dados
-          .filter(dado => {
-            let filtro = searchParams.get('filtro');
-            if(!filtro){
-              return true;
-            }
-            let uf = dado.uf.toLowerCase();
-            return uf.startsWith(filtro.toLowerCase());
-            })
-            .map((dado)=> (
-          <ul>
-           <LocacaoCard locacao_nome={dado.locacao_nome} uf={dado.uf} localidade={dado.localidade} bairro={dado.bairro} logradouro={dado.logradouro} preco={dado.preco} capacidade={dado.capacidade} phone={dado.proprietario.phone}/>
-          </ul>       
-              ))
-          }
-        )}*/}
           </Container>
     </>
   );
