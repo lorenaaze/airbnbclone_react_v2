@@ -13,7 +13,7 @@ import FiltroUf from './rotas/paginaFiltroUf';
 import FiltroLocalidade from './rotas/paginaFiltroLocalidade';
 import FiltroCapacidade from './rotas/paginaFiltroCapacidade';
 import FiltroPreco from './rotas/paginaFiltroPreco';
-import FiltroOfertas from './containers/PaginaOfertas/paginaFiltroOfertas';
+import FiltroOfertas from './rotas/paginaFiltroOfertas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
