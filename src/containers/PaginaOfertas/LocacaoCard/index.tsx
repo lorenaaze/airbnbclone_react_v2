@@ -21,7 +21,6 @@ interface CardProps {
 function LocacaoCard( {locacao_nome, uf, localidade, bairro, logradouro, preco, capacidade, phone} : CardProps) {
   return (
       <>
-      <CardHeader>
         <Card>
           <Row xs={1} md={2} className="g-1">
             <Card.Img  style={{ width: '300px' }} src={ backgroundTheme} alt="Imagem do Tema" />
@@ -33,11 +32,9 @@ function LocacaoCard( {locacao_nome, uf, localidade, bairro, logradouro, preco, 
                 <h6>Até {capacidade} pessoas</h6>
                 <h6>Contato propriertário: {phone}</h6>
                 </Card.Text>
-
             </Card.Body>
           </Row>
       </Card>
-      </CardHeader>
       </>
     /*<ContainerCard>
       <>
