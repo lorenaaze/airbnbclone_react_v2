@@ -1,4 +1,5 @@
 export interface Locacao {
+    _id:string;
     locacao_nome: string,
     descricao_longa: string,
     descricao_curta: string,

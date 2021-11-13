@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Locacao } from '../dtos';
-import LocacaoCard from '../containers/PaginaOfertas/LocacaoCard'
-import { InputGroup, Dropdown, FormControl, DropdownButton, Container, Form, Col, Row, Button } from 'react-bootstrap';
+import LocacaoCard from '../containers/PaginaOfertas/LocacaoCard/locacaoCard'
+import { InputGroup, Dropdown, Card, DropdownButton, Container, Form, Col, Row, Button } from 'react-bootstrap';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FiltroOfertas } from './paginaFiltroOfertas';
+import SearchList from '../containers/searchList';
+import Scroll from '../containers/scroll';
+
 
 function RetornoLocacoes() {
   const [dados, setDados] = useState<Locacao[]>();
   const url = 'https://airbnb-clone-desafio.herokuapp.com/api/locacao';
+  const [searchField, setSearchField] = useState("");
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState(false);
 
@@ -32,7 +36,51 @@ function RetornoLocacoes() {
     consultarLocacoes();
   }, [url]);
 
-  let [searchParams, setSearchParams] = useSearchParams();
+  const filteredLocacoes = dados?.filter(
+    locacao => {
+      return (
+        locacao
+        .locacao_nome
+        .toLowerCase()
+        .includes(searchField.toLowerCase()) ||
+        locacao
+        .uf
+        .toLowerCase()
+        .includes(searchField.toLowerCase()) ||
+        locacao
+        .localidade
+        .toLowerCase()
+        .includes(searchField.toLowerCase()) ||
+        locacao
+        .capacidade
+        .toString()
+        .toLowerCase()
+        .includes(searchField.toLowerCase()) ||
+        locacao
+        .preco
+        .toString()
+        .toLowerCase()
+        .includes(searchField.toLowerCase())
+      )
+    }
+  )
+
+  const handleChange = (event: any) => {
+    setSearchField(event.target.value);
+  }
+
+  function searchList(){
+    let dadosBusca = () => {
+      if(filteredLocacoes === undefined){
+        return dados;
+      } else{
+        return filteredLocacoes;
+      }
+    }
+    return <Scroll>
+      <SearchList filteredLocacoes={dadosBusca}/>
+    </Scroll>
+  }
 
   return (
     <>
@@ -42,7 +90,7 @@ function RetornoLocacoes() {
                 <Row>
                     <Col className="col-xl-3">
                         <InputGroup className="mb-3">
-                            <FormControl
+                          {/* <FormControl
                                 placeholder="Busque pelo estado (UF), cidade, capacidade ou preço:"
                                 aria-label="Busque pelo estado, cidade, capacidade ou preço:"
                                 type="search" 
@@ -55,7 +103,10 @@ function RetornoLocacoes() {
                                     setSearchParams({});
                                   }
                                 }}
-                            />
+                              />*/}
+                              <input type="search" 
+                              placeholder="Busque pelo estado (UF), cidade, capacidade ou preço:"
+                              onChange={handleChange} />
                             <DropdownButton
                                 variant="outline-secondary"
                                 title="Filtre por:"
@@ -71,8 +122,25 @@ function RetornoLocacoes() {
                     </Col>
                 </Row>
             </Form>
+            <Scroll>
+            {filteredLocacoes && filteredLocacoes!.map((filteredLocacao) => 
+            <ul>
+            <Card>
+             <LocacaoCard key={filteredLocacao._id} 
+             locacao_nome={filteredLocacao.locacao_nome} 
+             uf={filteredLocacao.uf} 
+             localidade={filteredLocacao.localidade} 
+             bairro={filteredLocacao.bairro}
+              logradouro={filteredLocacao.logradouro}
+               preco={filteredLocacao.preco}
+                capacidade={filteredLocacao.capacidade}
+                 phone={filteredLocacao.proprietario.phone}/>
+            </Card>
+          </ul>
+          )}
+    </Scroll>
  
-      {dados && dados!.map((dado) => 
+    {/*  {dados && dados!.map((dado) => 
           {dados
           .filter(dado => {
             let filtro = searchParams.get('filtro');
@@ -88,7 +156,7 @@ function RetornoLocacoes() {
           </ul>       
               ))
           }
-      )}
+        )}*/}
           </Container>
     </>
   );
