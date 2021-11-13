@@ -3,9 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row } from 'react-bootstrap';
 import backgroundTheme from '../../../assets/sem_image.png';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
-import style from './';
+import style from './locacaoCard';
 
 interface CardProps {
+    key : string;
    locacao_nome: string;
     uf: string,
     localidade: string,
@@ -18,7 +19,7 @@ interface CardProps {
     children: JSX.Element | JSX.Element[];*/
 }
 
-function LocacaoCard( {locacao_nome, uf, localidade, bairro, logradouro, preco, capacidade, phone} : CardProps) {
+function LocacaoCard( {key, locacao_nome, uf, localidade, bairro, logradouro, preco, capacidade, phone} : CardProps) {
   return (
       <>
         <Card>
