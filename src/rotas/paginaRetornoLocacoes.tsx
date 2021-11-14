@@ -80,7 +80,12 @@ const filteredLocacoes = dados?.filter(
         .includes(searchField.toLowerCase())
       )
     }
-
+    return (
+      locacao
+      .locacao_nome
+      .toLowerCase()
+      .includes(searchField.toLowerCase())
+    );
   });
   
  /* const filteredLocacoes = dados?.filter(
