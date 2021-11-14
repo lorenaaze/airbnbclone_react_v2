@@ -49,7 +49,7 @@ function Cadastro() {
 
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>CEP</Form.Label>
-                            <Form.Control type="string" placeholder="EX.: 00000-000" name="cep" minLength={8} maxLength={8} required/>
+                            <Form.Control type="string" placeholder="EX.: 00000-000" name="cep" minLength={8} maxLength={8} inputMode="numeric" required/>
                         </Form.Group>
                     </Row>
 
@@ -88,7 +88,7 @@ function Cadastro() {
 
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>CPF</Form.Label>
-                            <Form.Control type="string" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="EX.: 000.000.000-00" name="proprietario.cpf" required/>
+                            <Form.Control type="string" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="EX.: 000.000.000-00" name="proprietario.cpf" inputMode="numeric" required/>
                         </Form.Group>
                     </Row>
                 </fieldset>
