@@ -122,7 +122,7 @@ const filteredLocacoes = dados?.filter(
             <Card>
              <LocacaoCard key={filteredLocacao._id} 
                           locacao_nome={filteredLocacao.locacao_nome} 
-                          uf={filteredLocacao.uf} 
+                          uf={filteredLocacao.uf.toUpperCase()} 
                           localidade={filteredLocacao.localidade} 
                           bairro={filteredLocacao.bairro}
                           logradouro={filteredLocacao.logradouro}
