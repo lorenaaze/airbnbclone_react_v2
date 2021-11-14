@@ -3,7 +3,7 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 function Cadastro() {
     return (
         <>
-            <form method="post" action="http://localhost:5000/api/locacao/criarlocacao" encType="multipart/form-data" style={{ display: 'block', margin: '5rem 10rem' }}>
+            <form method="post" action="http://localhost:5000/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem' }}>
                 <fieldset>
                     <legend>Cadastre seu imóvel</legend>
                     <Form.Group className="mb-3" controlId="formGridAddress1">
@@ -64,12 +64,9 @@ function Cadastro() {
                             <Form.Control type="number" placeholder="Digite a capacidade de pessoas" name="capacidade" min={1} required/>
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridPassword">
-                            {/*<Form.Label>Imagem</Form.Label>
-                            <Form.Control type="file" id="image" name="img" min={1} required/>*/}
+                            <Form.Label>Imagem</Form.Label>
+                            <Form.Control type="string" id="urlImage" name="urlImage" min={1} required/>
                         </Form.Group>
-                            <label>Upload Image</label>
-                            <input type="file" id="image" 
-                       name="img" required></input>
                     </Row>
 
                 </fieldset>

@@ -18,9 +18,6 @@ export interface Locacao {
         phone: string,
     }
     ultimo_update: Date,
-    img?: {
-        data: Buffer,
-        contentType: String
-    };
+    urlImage: string
 }
 
