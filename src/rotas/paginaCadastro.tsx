@@ -3,7 +3,7 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 function Cadastro() {
     return (
         <>
-            <form method="post" action="http://localhost:5000/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem' }}>
+            <form method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem' }}>
                 <fieldset>
                     <legend>Cadastre seu imóvel</legend>
                     <Form.Group className="mb-3" controlId="formGridAddress1">
