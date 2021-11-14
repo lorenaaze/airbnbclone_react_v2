@@ -3,7 +3,7 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 function Cadastro() {
     return (
         <>
-            <form method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem' }}>
+            <form method="post" action="http://localhost:5000/api/locacao/criarlocacao" encType="multipart/form-data" style={{ display: 'block', margin: '5rem 10rem' }}>
                 <fieldset>
                     <legend>Cadastre seu imóvel</legend>
                     <Form.Group className="mb-3" controlId="formGridAddress1">
@@ -63,7 +63,15 @@ function Cadastro() {
                             <Form.Label>Capacidade</Form.Label>
                             <Form.Control type="number" placeholder="Digite a capacidade de pessoas" name="capacidade" min={1} required/>
                         </Form.Group>
+                        <Form.Group as={Col} controlId="formGridPassword">
+                            {/*<Form.Label>Imagem</Form.Label>
+                            <Form.Control type="file" id="image" name="img" min={1} required/>*/}
+                        </Form.Group>
+                            <label>Upload Image</label>
+                            <input type="file" id="image" 
+                       name="img" required></input>
                     </Row>
+
                 </fieldset>
                 <fieldset style={{margin: '2rem 0'}}>
                    <legend>Dados do proprietário:</legend>
