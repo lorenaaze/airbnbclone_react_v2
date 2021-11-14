@@ -128,7 +128,8 @@ const filteredLocacoes = dados?.filter(
                           logradouro={filteredLocacao.logradouro}
                           preco={filteredLocacao.preco}
                           capacidade={filteredLocacao.capacidade}
-                 phone={filteredLocacao.proprietario.phone}/>
+                 phone={filteredLocacao.proprietario.phone}
+                 urlImage={filteredLocacao.urlImage}/>
             </Card>
           </ul>
           )}
