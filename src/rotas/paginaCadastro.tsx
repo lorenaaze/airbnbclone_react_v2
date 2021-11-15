@@ -1,4 +1,4 @@
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button, InputGroup } from 'react-bootstrap';
 
 function Cadastro() {
     return (
@@ -64,8 +64,13 @@ function Cadastro() {
                             <Form.Control type="number" placeholder="Digite a capacidade de pessoas" name="capacidade" min={1} required/>
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridPassword">
-                            <Form.Label>Imagem</Form.Label>
-                            <Form.Control type="string" id="urlImage" name="urlImage" min={1} required/>
+                            <Form.Label htmlFor="urlImage" >Imagem</Form.Label>
+                            <InputGroup>
+                            <InputGroup.Text id="basic-addon3">
+                                 https://example.com/imagem/
+                            </InputGroup.Text>
+                            <Form.Control type="string" id="urlImage" aria-describedby="basic-addon3" name="urlImage" min={1} required/>
+                            </InputGroup>
                         </Form.Group>
                     </Row>
 
