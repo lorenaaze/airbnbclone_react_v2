@@ -93,13 +93,6 @@ interface CardProps {
         <Modal.Body>
 
         <form method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarreserva" style={{ display: 'block', margin: '5rem 10rem' }}>
-            <input type="hidden" id="_id" name="id_locacao" value={findLocacao?._id}/>
-            <input type="hidden" id="locacao_nome" name='locacao_nome' value={findLocacao?.locacao_nome} />
-            <input type="hidden" id="cep" name="cep" value={findLocacao?.cep}/>
-            <input type="hidden" id="logradouro" name="logradouro" value={findLocacao?.logradouro}/>
-            <input type="hidden" id="complemento" name="complemento" value={findLocacao?.complemento}/>
-            <input type="hidden" id="bairro" name="bairro" value={findLocacao?.bairro}/>
-            <input type="hidden" id="localidade" name="localidade" value={findLocacao?.bairro}/>
                 <fieldset>
                     <Form.Group className="mb-3" controlId="Title">
                         <Form.Label>Título</Form.Label>
@@ -141,24 +134,24 @@ interface CardProps {
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>Nome</Form.Label>
-                            <Form.Control type="text" placeholder="Digite o nome do proprietário" name="proprietario.nome" required/>
+                            <Form.Control type="text" placeholder="Digite o nome do proprietário" name="cliente.nome" required/>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>Telefone</Form.Label>
-                            <Form.Control type="tel" placeholder="EX.: (00) 0000-0000" name="proprietario.phone" required/>
+                            <Form.Control type="tel" placeholder="EX.: (00) 0000-0000" name="cliente.phone" required/>
                         </Form.Group>
                     </Row>
 
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>E-mail</Form.Label>
-                            <Form.Control type="email" placeholder="Digite o e-mail do proprietário" name="proprietario.email" required/>
+                            <Form.Control type="email" placeholder="Digite o e-mail do proprietário" name="cliente.email" required/>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>CPF</Form.Label>
-                            <Form.Control type="string" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="EX.: 000.000.000-00" name="proprietario.cpf" inputMode="numeric" required/>
+                            <Form.Control type="string" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="EX.: 000.000.000-00" name="cliente.cpf" inputMode="numeric" required/>
                         </Form.Group>
                     </Row>
                 </fieldset>
