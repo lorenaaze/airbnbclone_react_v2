@@ -2,27 +2,12 @@ import React, {useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Col, Row, Modal, Form} from 'react-bootstrap';
-import backgroundTheme from '../../../assets/sem_image.png';
-import CardHeader from 'react-bootstrap/esm/CardHeader';
 import { Link } from 'react-router-dom';
 import { Locacao } from '../dtos';
 import * as Dados from '../utils/retornaDados';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 
-interface CardProps {
-    key : string;
-   locacao_nome: string;
-    uf: string,
-    localidade: string,
-    bairro: string,
-    logradouro: string,
-    preco: number,
-    capacidade: number,
-        phone: string,
-    urlImage: string | null;
-    /*children: JSX.Element | JSX.Element[];*/
-}
  function RetornoLocacao() {
     let params = useParams();
     console.log(params);
@@ -93,6 +78,25 @@ interface CardProps {
         <Modal.Body>
 
         <form method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarreserva" style={{ display: 'block', margin: '5rem 10rem' }}>
+            <input type="hidden" id="_id" name="id_locacao" value={findLocacao?._id}/>
+            <input type="hidden" id="locacao_nome" name='locacao_nome' value={findLocacao?.locacao_nome} />
+            <input type="hidden" id="cep" name="cep" value={findLocacao?.cep}/>
+            <input type="hidden" id="logradouro" name="logradouro" value={findLocacao?.logradouro}/>
+            <input type="hidden" id="complemento" name="complemento" value={findLocacao?.complemento}/>
+            <input type="hidden" id="bairro" name="bairro" value={findLocacao?.bairro}/>
+            <input type="hidden" id="localidade" name="localidade" value={findLocacao?.bairro}/>
+            <input type="hidden" id="uf" name="uf" value={findLocacao?.uf}/>
+            <input type="hidden" id="descricao_longa" name="descricao_longa" value={findLocacao?.descricao_longa}/>
+            <input type="hidden" id="descricao_curta" name="descricao_curta" value={findLocacao?.descricao_curta}/>
+            <input type="hidden" id="preco" name="preco" value={findLocacao?.preco}/>
+            <input type="hidden" id="proprietario.nome" name="proprietario.nome" value={findLocacao?.proprietario.nome}/>
+            <input type="hidden" id="proprietario.cpf" name="proprietario.cpf" value={findLocacao?.proprietario.cpf}/>
+            <input type="hidden" id="proprietario.email" name="proprietario.email" value={findLocacao?.proprietario.email}/>
+            <input type="hidden" id="proprietario.phone" name="proprietario.phone" value={findLocacao?.proprietario.phone}/>
+            <input type="hidden" id="capacidade" name="capacidade" value={findLocacao?.capacidade}/>
+            <input type="hidden" id="ultimo_update" name="ultimo_update" value={findLocacao?.ultimo_update.toString()}/>
+            <input type="hidden" id="urlImage" name="urlImage" value={findLocacao?.urlImage}/>
+
                 <fieldset>
                     <Form.Group className="mb-3" controlId="Title">
                         <Form.Label>Título</Form.Label>
