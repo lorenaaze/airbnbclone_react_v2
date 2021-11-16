@@ -1,10 +1,11 @@
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { useAlert } from 'react-alert';
+import '../estilos/paginaCadastro.css';
 
 function Cadastro() {
     return (
         <>
-            <form method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem' }}
+            <form className="form-cadastro" method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem' }}
             onSubmit={() => {
                 alert('Cadastro enviado com sucesso!')
             }}>
@@ -101,7 +102,7 @@ function Cadastro() {
                         </Form.Group>
                     </Row>
                 </fieldset>
-                <Button variant="primary" type="submit">Enviar cadastro</Button>
+                <Button style={{backgroundColor: "#ff385c", borderColor: "#ff385c"}} className="botao-cadastro" variant="primary" type="submit">Enviar cadastro</Button>
             </form>
         </>
     )
