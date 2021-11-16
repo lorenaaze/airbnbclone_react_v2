@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link} from 'react-router-dom';
 import { Locacao } from '../dtos';
 import LocacaoCard from '../containers/PaginaOfertas/LocacaoCard/locacaoCard'
 import { InputGroup, Dropdown, Card, DropdownButton, Container, Form, Col, Row, Button, FormControl } from 'react-bootstrap';
@@ -41,9 +41,6 @@ function RetornoLocacoes() {
     setSearchFilter(selectedOption);
     return selectedOption;
   };
-
-  console.log(searchFilter);
-
 
 const filteredLocacoes = dados?.filter(
   locacao => {
@@ -119,6 +116,7 @@ const filteredLocacoes = dados?.filter(
             <Scroll>
             {filteredLocacoes && filteredLocacoes!.map((filteredLocacao) => 
             <ul>
+            <Link to={`${filteredLocacao._id}`}> 
             <Card>
              <LocacaoCard key={filteredLocacao._id} 
                           locacao_nome={filteredLocacao.locacao_nome} 
@@ -131,6 +129,7 @@ const filteredLocacoes = dados?.filter(
                  phone={filteredLocacao.proprietario.phone}
                  urlImage={filteredLocacao.urlImage}/>
             </Card>
+            </Link>
           </ul>
           )}
     </Scroll>

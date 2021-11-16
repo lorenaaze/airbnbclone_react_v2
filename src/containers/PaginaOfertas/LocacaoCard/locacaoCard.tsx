@@ -1,9 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Row } from 'react-bootstrap';
+import { Button, Card, Row } from 'react-bootstrap';
 import backgroundTheme from '../../../assets/sem_image.png';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
 import style from './locacaoCard';
+import { Link } from 'react-router-dom';
 
 interface CardProps {
     key : string;
@@ -37,16 +38,6 @@ function LocacaoCard( {key, locacao_nome, uf, localidade, bairro, logradouro, pr
           </Row>
       </Card>
       </>
-    /*<ContainerCard>
-      <>
-        <CardInfor>
-          <img src={urlImage ?? backgroundTheme} alt="Imagem do Tema" />
-          <h6>{title}</h6>
-          <p>{category}</p>
-        </CardInfor>
-        <CardButtons>{children}</CardButtons>
-      </>
-    </ContainerCard>*/
   );
 }
 
