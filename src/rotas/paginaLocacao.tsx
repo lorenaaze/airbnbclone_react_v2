@@ -193,14 +193,6 @@ import '../estilos/paginaLocacao.css';
                 </form>
             
             </Modal.Body>
-        
-        {/*
-            <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-                Fechar
-            </Button>
-            <Button variant="primary">Concluir</Button>
-            </Modal.Footer>*/}
             </Modal>
         </div>
         </>

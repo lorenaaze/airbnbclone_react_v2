@@ -59,11 +59,14 @@ const filteredLocacoes = dados?.filter(
       );
     }
     if(searchFilter === 'capacidade'){
-      const capacidade: number = parseInt(searchField);
-      if(locacao.capacidade <= capacidade){
-        return locacao;
-      }
+        return (
+          locacao
+          .capacidade
+          .toString()
+          .includes(searchField)
+          );
     }
+    
     if(searchFilter === 'preco'){
       const preco: number = parseInt(searchField);
       if(locacao.preco <= preco){
