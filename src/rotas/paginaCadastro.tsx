@@ -1,9 +1,13 @@
 import { Form, Row, Col, Button, InputGroup } from 'react-bootstrap';
+import { useAlert } from 'react-alert';
 
 function Cadastro() {
     return (
         <>
-            <form method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem' }}>
+            <form method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem' }}
+            onSubmit={() => {
+                alert('Cadastro enviado com sucesso!')
+            }}>
                 <fieldset>
                     <legend>Cadastre seu imóvel</legend>
                     <Form.Group className="mb-3" controlId="formGridAddress1">
