@@ -54,10 +54,6 @@ import '../estilos/paginaLocacao.css';
 
     const [dateCheckIn, setDateCheckIn] = useState<Date | null>(new Date());
     const [dateCheckOut, setDateCheckOut] = useState<Date | null>(new Date());
-
-    const montante = () => {
-
-    }
   
     console.log("DATE", dateCheckIn);
 
@@ -104,7 +100,7 @@ import '../estilos/paginaLocacao.css';
                             </Form.Group>
                         </Row>
                     </fieldset>
-                    <Button className="botao" variant="primary" type="submit" >Deletar</Button>
+                    <Button className="botao" type="submit" >Deletar</Button>
                 </form>
             
             </Modal.Body>
@@ -193,7 +189,7 @@ import '../estilos/paginaLocacao.css';
                             </Form.Group>
                         </Row>
                     </fieldset>
-                    <Button className="botao" variant="primary" type="submit" >Reservar</Button>
+                    <Button className="botao" type="submit" >Reservar</Button>
                 </form>
             
             </Modal.Body>

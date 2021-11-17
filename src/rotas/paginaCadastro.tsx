@@ -102,7 +102,7 @@ function Cadastro() {
                         </Form.Group>
                     </Row>
                 </fieldset>
-                <Button style={{backgroundColor: "#ff385c", borderColor: "#ff385c"}} className="botao-cadastro" variant="primary" type="submit">Enviar cadastro</Button>
+                <Button style={{backgroundColor: "#ff385c", borderColor: "#ff385c"}} className="botao-cadastro" type="submit">Enviar cadastro</Button>
             </form>
         </>
     )
