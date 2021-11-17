@@ -64,7 +64,6 @@ import '../estilos/paginaLocacao.css';
 
     return(
         <>
-<<<<<<< HEAD
         <div className="info-locacao">
             <h1 className="info-locacao-titulo">Faça já sua reserva!</h1>
             <p>Nome da locação: {findLocacao?.locacao_nome}</p>
@@ -79,7 +78,6 @@ import '../estilos/paginaLocacao.css';
             <p>E-mail: {findLocacao?.proprietario.email}</p>
             <Button className="botão-reserva" onClick={handleShow}>Fazer reserva</Button>
         </div>
-=======
         <h1>Você chegou aqui</h1>
         <p>Locacao Nome: {findLocacao?.locacao_nome}</p>
         {/*////////////////////////////////////// PARTE DO BOTÃO DE DELETAR //////////////////////////////////////////////////////*/}
@@ -118,7 +116,6 @@ import '../estilos/paginaLocacao.css';
 {/*////////////////////////////////////// o MODAL DE DELETAR ACABA AQUI //////////////////////////////////////////////////////*/}
 
         <Button onClick={handleShow}>Fazer reserva</Button>
->>>>>>> origin/liz
         
         
         <Modal
