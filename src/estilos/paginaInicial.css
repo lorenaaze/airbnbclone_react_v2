@@ -4,5 +4,39 @@
 
 .carrossel {
     width: 100%;
-    height: 50%;
+    height: 60%;
+}
+
+.container {
+    margin-top: 8vh;
+    border: 1px solid #ff385c;
+    border-radius: 20px;
+    margin-bottom: 8vh;
+}
+
+.container h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    margin: 3.4vh 0;
+}
+
+.container h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin: 3.8vh 0;
+}
+
+.container .img-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 3vh;
+}
+
+.container .img-container img {
+    width: 360px;
+    height: 300px;
+    object-fit: cover;
 }

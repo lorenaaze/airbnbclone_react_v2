@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { Outlet, Link, NavLink } from 'react-router-dom';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Outlet, NavLink } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
 
 
 function App() {
@@ -15,7 +15,6 @@ function App() {
               <Nav className="me-auto">
                 <Nav.Link style={{paddingRight: "3rem"}} as={NavLink} to="/">Página inicial</Nav.Link>
                 <Nav.Link style={{paddingRight: "3rem"}} className="nav-item" as={NavLink} to="/locacao">Veja nossas ofertas</Nav.Link>
-                <Nav.Link style={{paddingRight: "3rem"}} className="nav-item" as={NavLink} to="/reserva">Faça sua reserva</Nav.Link>
                 <Nav.Link as={NavLink} to="/cadastro">Seja um anfitrião</Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -25,18 +24,11 @@ function App() {
       <main>
         <Outlet />
       </main>
-      <footer>
-        <p></p>
+      <footer className="footer">
+        <p>Feito por Liz e Lorena</p>
       </footer>
     </>
   );
 }
 
 export default App;
-
-// <nav>
-//           <Link to="/">Página inicial</Link> | {' '}
-//           <Link to="/locacao">Veja nossas ofertas</Link> | {' '}
-//           <Link to="/reserva">Faça uma reserva</Link> | {' '}
-//           <Link to="/cadastro">Seja um anfitrião</Link> 
-//         </nav>

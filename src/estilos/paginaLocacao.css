@@ -18,15 +18,16 @@
     border: 1px solid #ff385c;
 }
 
-.botão-reserva {
+.botao {
     background-color: #ff385c;
     margin-bottom: 4vh;
     border-color: #ff385c;
 }
 
-.botão-reserva:hover {
+.botao:hover {
     background-color: black;
     color: white;
+    border-color: #ff385c;
 }
 
 

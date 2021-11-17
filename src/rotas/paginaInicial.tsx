@@ -38,6 +38,16 @@ function PaginaInicial() {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
+
+            <div className="container">
+                <h1>Venha conhecer todas as nossas opções de acomodações</h1>
+                <h2>Cabanas, hotéis, resorts luxuosos, apartamentos, quartos privativos: tem para todos os gostos</h2>
+                <div className="img-container">
+                    <img src="https://cdn.pixabay.com/photo/2018/02/24/17/17/window-3178666_960_720.jpg"/>
+                    <img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fGphY3V6eml8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"/>
+                    <img src="https://images.unsplash.com/photo-1613553507747-5f8d62ad5904?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"/>
+                </div>
+            </div>
         </>
     )
 }

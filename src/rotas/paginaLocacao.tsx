@@ -2,7 +2,6 @@ import React, {useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Col, Row, Modal, Form} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { Locacao } from '../dtos';
 import * as Dados from '../utils/retornaDados';
 import DatePicker from "react-datepicker";
@@ -76,140 +75,138 @@ import '../estilos/paginaLocacao.css';
             <p>Para contatar o(a) proprietário(a) {findLocacao?.proprietario.nome}:</p>
             <p>Telefone: {findLocacao?.proprietario.phone}</p>
             <p>E-mail: {findLocacao?.proprietario.email}</p>
-            <Button className="botão-reserva" onClick={handleShow}>Fazer reserva</Button>
-        </div>
-        <h1>Você chegou aqui</h1>
-        <p>Locacao Nome: {findLocacao?.locacao_nome}</p>
+      
         {/*////////////////////////////////////// PARTE DO BOTÃO DE DELETAR //////////////////////////////////////////////////////*/}
-        <Button onClick={handleShowDelete}>Deletar</Button>
+            <Button className="botao" onClick={handleShowDelete}>Deletar</Button>
 
-        <Modal
-        show={showDelete}
-        onHide={handleCloseDelete}
-        backdrop="static"
-        keyboard={false}
-        size= "lg"
-        centered
+            <Modal
+            show={showDelete}
+            onHide={handleCloseDelete}
+            backdrop="static"
+            keyboard={false}
+            size= "lg"
+            centered
 
-        >
+            >
 
-        <Modal.Header closeButton>
-        <Modal.Title>{findLocacao?.locacao_nome}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+            <Modal.Header closeButton>
+            <Modal.Title>{findLocacao?.locacao_nome}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
 
-        <form method="post" action={`http://localhost:5000/api/locacao/${findLocacao?._id}/deletarlocacao`} style={{ display: 'block', margin: '5rem 10rem' }}>
-                <fieldset style={{margin: '2rem 0'}}>
-                   <legend>Informe o CPF do proprietário:</legend>
-                    <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formGridPassword">
-                            <Form.Label>CPF</Form.Label>
-                            <Form.Control type="string" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="EX.: 000.000.000-00" name="cliente.cpf" inputMode="numeric" required/>
+            <form method="post" action={`http://localhost:5000/api/locacao/${findLocacao?._id}/deletarlocacao`} style={{ display: 'block', margin: '5rem 10rem' }}>
+                    <fieldset style={{margin: '2rem 0'}}>
+                    <legend>Informe o CPF do proprietário:</legend>
+                        <Row className="mb-3">
+                            <Form.Group as={Col} controlId="formGridPassword">
+                                <Form.Label>CPF</Form.Label>
+                                <Form.Control type="string" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="EX.: 000.000.000-00" name="cliente.cpf" inputMode="numeric" required/>
+                            </Form.Group>
+                        </Row>
+                    </fieldset>
+                    <Button className="botao" variant="primary" type="submit" >Deletar</Button>
+                </form>
+            
+            </Modal.Body>
+            </Modal>
+    {/*////////////////////////////////////// o MODAL DE DELETAR ACABA AQUI //////////////////////////////////////////////////////*/}
+
+            <Button className="botao" onClick={handleShow}>Fazer reserva</Button>
+            
+            
+            <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+            size= "lg"
+            centered
+
+            >
+
+            <Modal.Header closeButton>
+            <Modal.Title>{findLocacao?.locacao_nome}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+
+            <form method="post" action={`http://localhost:5000/api/locacao/${findLocacao?._id}`} style={{ display: 'block', margin: '5rem 10rem' }}>
+
+                    <fieldset>
+                        <Form.Group className="mb-3" controlId="Title">
+                            <Form.Label>Título</Form.Label>
+                            <Form.Control type="text" placeholder="Título do anúncio" minLength={5} maxLength={50} value={findLocacao?.locacao_nome} readOnly/>
                         </Form.Group>
-                    </Row>
-                </fieldset>
-                <Button variant="primary" type="submit" >Deletar</Button>
-            </form>
+
+                        <Row className="mb-3">
+                            <Form.Group as={Col} controlId="check_in">
+                                <Form.Label>Data de entrada</Form.Label>
+                                <DatePicker 
+                                    dateFormat="dd-MM-yyyy"
+                                    selected={dateCheckIn} 
+                                    onChange={(dateCheckIn: Date | null) => setDateCheckIn(dateCheckIn)} 
+                                    selectsStart 
+                                    startDate={dateCheckIn} 
+                                    endDate={dateCheckOut}
+                                    name="check_in"
+                                />
+                            </Form.Group>
+                            <Form.Group as={Col} controlId="check_out">
+                                <Form.Label>Data de saída</Form.Label>
+                                <DatePicker 
+                                    dateFormat="dd-MM-yyyy"
+                                    selected={dateCheckOut}
+                                    onChange={(dateCheckOut: Date | null) => setDateCheckOut(dateCheckOut)} 
+                                    selectsEnd
+                                    startDate={dateCheckIn}
+                                    endDate={dateCheckOut}
+                                    minDate={dateCheckIn}
+                                    name="check_out" 
+                                />
+                            </Form.Group>
+                        </Row>
+
+                    </fieldset>
+                    <fieldset style={{margin: '2rem 0'}}>
+                    <legend>Dados do cliente:</legend>
+
+                        <Row className="mb-3">
+                            <Form.Group as={Col} controlId="formGridEmail">
+                                <Form.Label>Nome</Form.Label>
+                                <Form.Control type="text" placeholder="Digite o nome do proprietário" name="cliente.nome" required/>
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridPassword">
+                                <Form.Label>Telefone</Form.Label>
+                                <Form.Control type="tel" placeholder="EX.: (00) 0000-0000" name="cliente.phone" required/>
+                            </Form.Group>
+                        </Row>
+
+                        <Row className="mb-3">
+                            <Form.Group as={Col} controlId="formGridEmail">
+                                <Form.Label>E-mail</Form.Label>
+                                <Form.Control type="email" placeholder="Digite o e-mail do proprietário" name="cliente.email" required/>
+                            </Form.Group>
+
+                            <Form.Group as={Col} controlId="formGridPassword">
+                                <Form.Label>CPF</Form.Label>
+                                <Form.Control type="string" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="EX.: 000.000.000-00" name="cliente.cpf" inputMode="numeric" required/>
+                            </Form.Group>
+                        </Row>
+                    </fieldset>
+                    <Button className="botao" variant="primary" type="submit" >Reservar</Button>
+                </form>
+            
+            </Modal.Body>
         
-        </Modal.Body>
-        </Modal>
-{/*////////////////////////////////////// o MODAL DE DELETAR ACABA AQUI //////////////////////////////////////////////////////*/}
-
-        <Button onClick={handleShow}>Fazer reserva</Button>
-        
-        
-        <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-        size= "lg"
-        centered
-
-        >
-
-        <Modal.Header closeButton>
-        <Modal.Title>{findLocacao?.locacao_nome}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-
-        <form method="post" action={`http://localhost:5000/api/locacao/${findLocacao?._id}`} style={{ display: 'block', margin: '5rem 10rem' }}>
-
-                <fieldset>
-                    <Form.Group className="mb-3" controlId="Title">
-                        <Form.Label>Título</Form.Label>
-                        <Form.Control type="text" placeholder="Título do anúncio" minLength={5} maxLength={50} value={findLocacao?.locacao_nome} readOnly/>
-                    </Form.Group>
-
-                    <Row className="mb-3">
-                        <Form.Group as={Col} controlId="check_in">
-                            <Form.Label>Data de entrada</Form.Label>
-                            <DatePicker 
-                                dateFormat="dd-MM-yyyy"
-                                selected={dateCheckIn} 
-                                onChange={(dateCheckIn: Date | null) => setDateCheckIn(dateCheckIn)} 
-                                selectsStart 
-                                startDate={dateCheckIn} 
-                                endDate={dateCheckOut}
-                                name="check_in"
-                            />
-                        </Form.Group>
-                        <Form.Group as={Col} controlId="check_out">
-                            <Form.Label>Data de saída</Form.Label>
-                            <DatePicker 
-                                dateFormat="dd-MM-yyyy"
-                                selected={dateCheckOut}
-                                onChange={(dateCheckOut: Date | null) => setDateCheckOut(dateCheckOut)} 
-                                selectsEnd
-                                startDate={dateCheckIn}
-                                endDate={dateCheckOut}
-                                minDate={dateCheckIn}
-                                name="check_out" 
-                            />
-                        </Form.Group>
-                    </Row>
-
-                </fieldset>
-                <fieldset style={{margin: '2rem 0'}}>
-                   <legend>Dados do cliente:</legend>
-
-                    <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Label>Nome</Form.Label>
-                            <Form.Control type="text" placeholder="Digite o nome do proprietário" name="cliente.nome" required/>
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridPassword">
-                            <Form.Label>Telefone</Form.Label>
-                            <Form.Control type="tel" placeholder="EX.: (00) 0000-0000" name="cliente.phone" required/>
-                        </Form.Group>
-                    </Row>
-
-                    <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Label>E-mail</Form.Label>
-                            <Form.Control type="email" placeholder="Digite o e-mail do proprietário" name="cliente.email" required/>
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridPassword">
-                            <Form.Label>CPF</Form.Label>
-                            <Form.Control type="string" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="EX.: 000.000.000-00" name="cliente.cpf" inputMode="numeric" required/>
-                        </Form.Group>
-                    </Row>
-                </fieldset>
-                <Button variant="primary" type="submit" >Reservar</Button>
-            </form>
-        
-        </Modal.Body>
-
-       {/*
-        <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-            Fechar
-        </Button>
-        <Button variant="primary">Concluir</Button>
-        </Modal.Footer>*/}
-        </Modal>
+        {/*
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+                Fechar
+            </Button>
+            <Button variant="primary">Concluir</Button>
+            </Modal.Footer>*/}
+            </Modal>
+        </div>
         </>
 
 

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams, Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Locacao } from '../dtos';
 import LocacaoCard from '../containers/PaginaOfertas/LocacaoCard/locacaoCard'
-import { InputGroup, Dropdown, Card, DropdownButton, Container, Form, Col, Row, Button, FormControl } from 'react-bootstrap';
-import { NavLink, Outlet } from 'react-router-dom';
-import { FiltroOfertas } from './paginaFiltroOfertas';
+import { InputGroup, Card, Container, Form, Col, Row, FormControl } from 'react-bootstrap';
 import Scroll from '../containers/scroll';
 
 
@@ -61,22 +59,16 @@ const filteredLocacoes = dados?.filter(
       );
     }
     if(searchFilter === 'capacidade'){
-      return(
-        locacao
-        .capacidade
-        .toString()
-        .toLowerCase()
-        .includes(searchField.toLowerCase())
-      );
+      const capacidade: number = parseInt(searchField);
+      if(locacao.capacidade <= capacidade){
+        return locacao;
+      }
     }
     if(searchFilter === 'preco'){
-      return(
-        locacao
-        .preco
-        .toString()
-        .toLowerCase()
-        .includes(searchField.toLowerCase())
-      )
+      const preco: number = parseInt(searchField);
+      if(locacao.preco <= preco){
+        return locacao;
+      }
     }
     return (
       locacao
