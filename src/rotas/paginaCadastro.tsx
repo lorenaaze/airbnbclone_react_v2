@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { useAlert } from 'react-alert';
 import '../estilos/paginaCadastro.css';
+=======
+import { Form, Row, Col, Button, InputGroup } from 'react-bootstrap';
+import { useAlert } from 'react-alert';
+>>>>>>> origin/liz
 
 function Cadastro() {
     return (
