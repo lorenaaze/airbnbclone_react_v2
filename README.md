@@ -27,6 +27,11 @@ $ npm install
 ## Tarefas da dupla
 
 ### Lorena
+ - Estilização
+ - Caminho das rotas
+ - Retorno locações
+ - Formulário de cadastro com validação
+ - Deploy no Vercel
 
 ### Liz
  - Card com retorno de Locações
