@@ -6,8 +6,8 @@ import { Locacao } from '../../helpers/dtos';
 import * as Dados from '../../utils/retornaDados';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
-import backgroundTheme from '../assets/sem_image.png';
-import '../estilos/paginaLocacao.css';
+import backgroundTheme from '../../assets/sem_image.png';
+import './style.css';
 
  function RetornoLocacao() {
     let params = useParams();

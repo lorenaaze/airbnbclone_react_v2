@@ -9,7 +9,7 @@ import Cadastro from './containers/PaginaCadastro';
 import RetornoLocacoes from './containers/PaginaOfertas';
 import PaginaNaoEncontrada from './containers/PaginaNaoEncontrada';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  RetornoLocacao  from './containers/PaginaOfertas/index';
+import  RetornoLocacao  from './containers/PaginaLocacao';
 
 
 ReactDOM.render(
