@@ -1,6 +1,6 @@
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { useAlert } from 'react-alert';
-import '../estilos/paginaCadastro.css';
+import './style.css';
 
 function Cadastro() {
     return (

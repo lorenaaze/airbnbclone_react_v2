@@ -1,5 +1,5 @@
 import { Carousel } from 'react-bootstrap';
-import '../estilos/paginaInicial.css';
+import './style.css';
 
 function PaginaInicial() {
     return (

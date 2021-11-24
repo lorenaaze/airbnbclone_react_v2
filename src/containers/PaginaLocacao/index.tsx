@@ -2,8 +2,8 @@ import React, {useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Col, Row, Modal, Form} from 'react-bootstrap';
-import { Locacao } from '../helpers/dtos';
-import * as Dados from '../utils/retornaDados';
+import { Locacao } from '../../helpers/dtos';
+import * as Dados from '../../utils/retornaDados';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import backgroundTheme from '../assets/sem_image.png';
