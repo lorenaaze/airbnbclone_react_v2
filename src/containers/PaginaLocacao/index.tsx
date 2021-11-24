@@ -52,8 +52,8 @@ import './style.css';
 
   const findLocacao = dados?.find(dado => dado._id === params.id!);
 
-    const [dateCheckIn, setDateCheckIn] = useState<Date | null>(new Date());
-    const [dateCheckOut, setDateCheckOut] = useState<Date | null>(new Date());
+    const [dateCheckIn, setDateCheckIn] = useState<Date>(new Date());
+    const [dateCheckOut, setDateCheckOut] = useState<Date>(new Date());
   
     console.log("DATE", dateCheckIn);
 
@@ -139,7 +139,7 @@ import './style.css';
                                 <DatePicker 
                                     dateFormat="dd-MM-yyyy"
                                     selected={dateCheckIn} 
-                                    onChange={(dateCheckIn: Date | null) => setDateCheckIn(dateCheckIn)} 
+                                    onChange={(dateCheckIn: Date | null) => setDateCheckIn(dateCheckIn!)} 
                                     selectsStart 
                                     startDate={dateCheckIn} 
                                     endDate={dateCheckOut}
@@ -151,7 +151,7 @@ import './style.css';
                                 <DatePicker 
                                     dateFormat="dd-MM-yyyy"
                                     selected={dateCheckOut}
-                                    onChange={(dateCheckOut: Date | null) => setDateCheckOut(dateCheckOut)} 
+                                    onChange={(dateCheckOut: Date | null) => setDateCheckOut(dateCheckOut!)} 
                                     selectsEnd
                                     startDate={dateCheckIn}
                                     endDate={dateCheckOut}
@@ -160,6 +160,8 @@ import './style.css';
                                 />
                             </Form.Group>
                         </Row>
+                    {/* Calcular os dias de check_in e check_out */}
+                    <h1>Total: R${((findLocacao?.preco!) * (Math.ceil((dateCheckOut.getTime() - dateCheckIn.getTime()) / (1000 * 3600 * 24) + 1))).toFixed(2)}</h1>
 
                     </fieldset>
                     <fieldset style={{margin: '2rem 0'}}>
