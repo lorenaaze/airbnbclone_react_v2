@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PaginaInicial from './rotas/paginaInicial';
-import Cadastro from './rotas/paginaCadastro';
-import RetornoLocacoes from './rotas/paginaRetornoLocacoes';
-import PaginaNaoEncontrada from './rotas/paginaNaoEncontrada';
+import PaginaInicial from './containers/PaginaInicial';
+import Cadastro from './containers/PaginaCadastro';
+import RetornoLocacoes from './containers/PaginaOfertas';
+import PaginaNaoEncontrada from './containers/PaginaNaoEncontrada';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  RetornoLocacao  from './rotas/paginaLocacao';
+import  RetornoLocacao  from './containers/PaginaOfertas/index';
 
 
 ReactDOM.render(

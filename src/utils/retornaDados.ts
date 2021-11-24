@@ -1,4 +1,4 @@
-import { Locacao } from '../dtos';
+import { Locacao } from '../helpers/dtos';
 
 export async function getDados() {
         const resultado = await fetch('https://airbnb-clone-desafio.herokuapp.com/api/locacao');

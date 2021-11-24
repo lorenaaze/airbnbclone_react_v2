@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Locacao } from '../dtos';
-import LocacaoCard from '../containers/PaginaOfertas/LocacaoCard/locacaoCard'
+import { Locacao } from '../../helpers/dtos';
+import LocacaoCard from './LocacaoCard/locacaoCard'
 import { InputGroup, Card, Container, Form, Col, Row, FormControl } from 'react-bootstrap';
-import Scroll from '../containers/scroll';
+import Scroll from './scroll';
 
 
 function RetornoLocacoes() {
