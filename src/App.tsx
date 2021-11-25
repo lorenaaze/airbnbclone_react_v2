@@ -9,8 +9,13 @@ import { link } from 'fs';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
+  const [showCadastro, setShowCadastro] = useState(false);
   const handleCloseLogin = () => setShowLogin(false);
   const handleShowLogin = () => setShowLogin(true);
+  const handleCloseCadastro = () => setShowCadastro(false);
+  const handleShowCadastro = () => setShowCadastro(true);
+
+
   return (
     <>
       <header>
@@ -23,6 +28,7 @@ function App() {
               <Nav.Link style={{ paddingRight: "3rem" }} className="nav-item" as={NavLink} to="/locacao">Veja nossas ofertas</Nav.Link>
               <Nav.Link as={NavLink} to="/cadastro">Seja um anfitrião</Nav.Link>
               <Button onClick={handleShowLogin}>Fazer Login</Button>
+              <Button onClick={handleShowCadastro}>Cadastre-se!</Button>
 
               <Modal
                 show={showLogin}
@@ -44,15 +50,48 @@ function App() {
                       <legend>Informe seus dados</legend>
                       <Form.Group className="mb-3" controlId="formGridAddress1">
                         <Form.Label>E-mail</Form.Label>
-                        <Form.Control type="text" placeholder="Digite seu e-mail" name="cliente.email" minLength={8} maxLength={50} required />
+                        <Form.Control type="text" placeholder="Digite seu e-mail" name="login.email" minLength={8} maxLength={50} required />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formGridAddress1">
                         <Form.Label>Senha</Form.Label>
-                        <Form.Control type="password" placeholder="Digite sua senha" name="cliente.senha" minLength={5} maxLength={50} required />
+                        <Form.Control type="password" placeholder="Digite sua senha" name="login.senha" minLength={5} maxLength={50} required />
                       </Form.Group>
                       <Button type="submit">Entrar</Button>
-                      <Button>Não tem cadastro? Cadastre-se já!</Button>
 
+
+                    </fieldset>
+                  </form>
+
+                </Modal.Body>
+
+              </Modal>
+              <Modal
+                show={showCadastro}
+                onHide={handleCloseCadastro}
+                backdrop="static"
+                keyboard={false}
+                size="lg"
+                centered
+
+              >
+
+                <Modal.Header closeButton>
+                  <Modal.Title>Faça o cadastro</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                  <form>
+                    <fieldset>
+                      <legend>Informe seus dados</legend>
+                      <Form.Group className="mb-3" controlId="formGridAddress1">
+                        <Form.Label>E-mail</Form.Label>
+                        <Form.Control type="text" placeholder="Cadastre seu e-mail" name="login.email" minLength={8} maxLength={50} required />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formGridAddress1">
+                        <Form.Label>Senha</Form.Label>
+                        <Form.Control type="password" placeholder="Cadastre sua senha" name="login.senha" minLength={5} maxLength={50} required />
+                      </Form.Group>
+                      <Button type="submit">Criar conta</Button>
                     </fieldset>
                   </form>
 
