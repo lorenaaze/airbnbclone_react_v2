@@ -54,6 +54,9 @@ import './style.css';
 
     const [dateCheckIn, setDateCheckIn] = useState<Date>(new Date());
     const [dateCheckOut, setDateCheckOut] = useState<Date>(new Date());
+    const diasDiaria = Math.ceil((dateCheckOut.getTime() - dateCheckIn.getTime()) / (1000 * 3600 * 24) + 1);
+    const diasDiariaFormatado = diasDiaria.toFixed(2);
+    const diasDiariaInt = parseInt(diasDiariaFormatado);
   
     console.log("DATE", dateCheckIn);
 
@@ -90,7 +93,7 @@ import './style.css';
             </Modal.Header>
             <Modal.Body>
 
-            <form method="post" action={`http://localhost:5000/api/locacao/${findLocacao?._id}/deletarlocacao`} style={{ display: 'block', margin: '5rem 10rem' }}>
+            <form method="post" action={`https://airbnb-clone-desafio.herokuapp.com/api/locacao/${findLocacao?._id}/deletarlocacao`} style={{ display: 'block', margin: '5rem 10rem' }}>
                     <fieldset style={{margin: '2rem 0'}}>
                     <legend>Informe o CPF do proprietário:</legend>
                         <Row className="mb-3">
@@ -161,7 +164,8 @@ import './style.css';
                             </Form.Group>
                         </Row>
                     {/* Calcular os dias de check_in e check_out */}
-                    <h1>Total: R${((findLocacao?.preco!) * (Math.ceil((dateCheckOut.getTime() - dateCheckIn.getTime()) / (1000 * 3600 * 24) + 1))).toFixed(2)}</h1>
+                    <h4>Dias hospedados: {diasDiariaInt}</h4>
+                    <h1>Total: R${((findLocacao?.preco!) * diasDiariaInt).toFixed(2)}</h1>
 
                     </fieldset>
                     <fieldset style={{margin: '2rem 0'}}>

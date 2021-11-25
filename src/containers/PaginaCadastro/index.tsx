@@ -70,7 +70,7 @@ function Cadastro() {
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>Imagem</Form.Label>
-                            <Form.Control type="text" placeholder="Digite a URL da imagem" id="urlImage" name="urlImage" min={1} required/>
+                            <Form.Control type="text" placeholder="Digite o endereço da imagem" id="urlImage" name="urlImage" min={1} required/>
                         </Form.Group>
                     </Row>
 
