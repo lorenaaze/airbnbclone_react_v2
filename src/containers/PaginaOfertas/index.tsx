@@ -12,7 +12,7 @@ function RetornoLocacoes() {
   const [searchFilter, setSearchFilter] = useState("");
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState(false);
-  let filter = `/${searchFilter}/${searchField}`
+  let filter = `/${searchFilter}/${searchField}`;
   const url = `https://airbnb-clone-desafio.herokuapp.com/api/locacao${filter}`;
   useEffect(() => {
     async function consultarLocacoes() {
@@ -40,47 +40,6 @@ function RetornoLocacoes() {
     setSearchFilter(selectedOption);
     return selectedOption;
   };
-
-/*const filteredLocacoes = dados?.filter(
-  locacao => {
-    if(searchFilter === 'uf'){
-      return(
-        locacao
-        .uf
-        .toLowerCase()
-        .includes(searchField.toLowerCase())
-      );
-    }
-    if(searchFilter === 'localidade'){
-      return(
-        locacao
-        .localidade
-        .toLowerCase()
-        .includes(searchField.toLowerCase())
-      );
-    }
-    if(searchFilter === 'capacidade'){
-        return (
-          locacao
-          .capacidade
-          .toString()
-          .includes(searchField)
-          );
-    }
-    
-    if(searchFilter === 'preco'){
-      const preco: number = parseInt(searchField);
-      if(locacao.preco <= preco){
-        return locacao;
-      }
-    }
-    return (
-      locacao
-      .locacao_nome
-      .toLowerCase()
-      .includes(searchField.toLowerCase())
-    );
-  });*/
 
   const handleChange = (event: any) => {
     setSearchField(event.target.value);
