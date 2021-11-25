@@ -10,18 +10,35 @@ import Scroll from './scroll';
 function Filtros() {
     const [searchField, setSearchField] = useState("");
     const [dados, setDados] = useState<Locacao[]>();
+    const [ufs, setUfs] = useState<[]>();
     const [selected, setSelected] = useState("");
     const [carregando, setCarregando] = useState(false);
     const [erro, setErro] = useState(false);
     const [url, setUrl] = useState("");
     
+    const urlSelect = 'https://airbnb-clone-desafio.herokuapp.com/api/locacao/uf'
 
-    const onChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedOption = event.currentTarget.value;
-        setSelected(selectedOption);
-        return selectedOption;
-    };
-
+    useEffect(() => {
+        async function consultarUfs() {
+            setErro(false);
+            setCarregando(true);
+            try {
+                const result = await fetch(urlSelect);
+                if (result.ok) {
+                    const ufs: [] = await result.json();
+                    setUfs(ufs);
+                    // setCarregando(false);
+                } else {
+                    setErro(true);
+                }
+            } catch (error) {
+                setErro(true);
+            }
+            setCarregando(false);
+        }
+        consultarUfs();
+    }, [urlSelect]);
+    
     useEffect(() => {
         async function consultarLocacoes() {
             setErro(false);
@@ -42,6 +59,14 @@ function Filtros() {
         }
         consultarLocacoes();
     }, [url]);
+    
+    const onChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedOption = event.target.value;
+        setSelected(selectedOption);
+        return selectedOption;
+    };
+
+    console.log(selected);
 
     return (
         <>
@@ -49,7 +74,7 @@ function Filtros() {
                 setUrl(`https://airbnb-clone-desafio.herokuapp.com/api/locacao/uf/${selected}/preco/${searchField}`)
                 event.preventDefault();
             }}>
-                <Form.Select onSelect={onChangeHandler} aria-label="Default select example">
+                <Form.Select onChange={onChangeHandler} aria-label="Default select example">
                     <option>Selecione o estado</option>
                     <option value="SP">São Paulo</option>
                     <option value="BA">Bahia</option>
