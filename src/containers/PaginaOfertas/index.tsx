@@ -4,7 +4,7 @@ import { Locacao } from '../../helpers/dtos';
 import LocacaoCard from './LocacaoCard/locacaoCard'
 import { InputGroup, Card, Container, Form, Col, Row, FormControl } from 'react-bootstrap';
 import Scroll from './scroll';
-
+import { Nav } from 'react-bootstrap';
 
 function RetornoLocacoes() {
   const [dados, setDados] = useState<Locacao[]>();
@@ -109,6 +109,7 @@ function RetornoLocacoes() {
                     </Col>
                 </Row>
             </Form>
+            <Nav.Link as={Link} to="/filtros">Filtro mais completo</Nav.Link>
             <Scroll>
             {dados && dados!.map((dado) => 
             <ul>

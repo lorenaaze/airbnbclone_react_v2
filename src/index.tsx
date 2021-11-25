@@ -10,6 +10,7 @@ import RetornoLocacoes from './containers/PaginaOfertas';
 import PaginaNaoEncontrada from './containers/PaginaNaoEncontrada';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import  RetornoLocacao  from './containers/PaginaLocacao';
+import Filtros from './containers/PaginaFiltro';
 
 
 ReactDOM.render(
@@ -22,6 +23,7 @@ ReactDOM.render(
           <Route path="locacao/:id" element={<RetornoLocacao/>}/>
         <Route path="cadastro" element={<Cadastro/>}/>
         <Route path="*" element={<PaginaNaoEncontrada/>}/>
+        <Route path="/filtros" element={<Filtros/>}/>
       </Route>
       </Routes>
     </BrowserRouter>
