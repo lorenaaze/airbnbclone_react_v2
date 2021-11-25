@@ -70,7 +70,7 @@ function Cadastro() {
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>Imagem</Form.Label>
-                            <Form.Control type="string" id="urlImage" name="urlImage" min={1} required/>
+                            <Form.Control type="file" id="urlImage" name="urlImage" min={1} required/>
                         </Form.Group>
                     </Row>
 
