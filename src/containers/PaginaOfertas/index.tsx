@@ -8,12 +8,12 @@ import Scroll from './scroll';
 
 function RetornoLocacoes() {
   const [dados, setDados] = useState<Locacao[]>();
-  const url = 'https://airbnb-clone-desafio.herokuapp.com/api/locacao';
   const [searchField, setSearchField] = useState("");
   const [searchFilter, setSearchFilter] = useState("");
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState(false);
-
+  let filter = `/${searchFilter}/${searchField}`
+  const url = `https://airbnb-clone-desafio.herokuapp.com/api/locacao`;
   useEffect(() => {
     async function consultarLocacoes() {
       setErro(false);
@@ -23,6 +23,7 @@ function RetornoLocacoes() {
         if (resultado.ok) {
           const dados: Locacao[] = await resultado.json();
           setDados(dados);
+         // setCarregando(false);
         } else {
           setErro(true);
         }
@@ -40,7 +41,7 @@ function RetornoLocacoes() {
     return selectedOption;
   };
 
-const filteredLocacoes = dados?.filter(
+/*const filteredLocacoes = dados?.filter(
   locacao => {
     if(searchFilter === 'uf'){
       return(
@@ -79,7 +80,7 @@ const filteredLocacoes = dados?.filter(
       .toLowerCase()
       .includes(searchField.toLowerCase())
     );
-  });
+  });*/
 
   const handleChange = (event: any) => {
     setSearchField(event.target.value);
@@ -109,20 +110,20 @@ const filteredLocacoes = dados?.filter(
                 </Row>
             </Form>
             <Scroll>
-            {filteredLocacoes && filteredLocacoes!.map((filteredLocacao) => 
+            {dados && dados!.map((dado) => 
             <ul>
-            <Link style={{color: "#000"}} to={`${filteredLocacao._id}`}> 
+            <Link style={{color: "#000"}} to={`${dado._id}`}> 
             <Card>
-             <LocacaoCard key={filteredLocacao._id} 
-                          locacao_nome={filteredLocacao.locacao_nome} 
-                          uf={filteredLocacao.uf.toUpperCase()} 
-                          localidade={filteredLocacao.localidade} 
-                          bairro={filteredLocacao.bairro}
-                          logradouro={filteredLocacao.logradouro}
-                          preco={filteredLocacao.preco}
-                          capacidade={filteredLocacao.capacidade}
-                 phone={filteredLocacao.proprietario.phone}
-                 urlImage={filteredLocacao.urlImage}/>
+             <LocacaoCard key={dado._id} 
+                          locacao_nome={dado.locacao_nome} 
+                          uf={dado.uf.toUpperCase()} 
+                          localidade={dado.localidade} 
+                          bairro={dado.bairro}
+                          logradouro={dado.logradouro}
+                          preco={dado.preco}
+                          capacidade={dado.capacidade}
+                 phone={dado.proprietario.phone}
+                 urlImage={dado.urlImage}/>
             </Card>
             </Link>
           </ul>

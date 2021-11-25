@@ -49,7 +49,7 @@ function Cadastro() {
 
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>Complemento</Form.Label>
-                            <Form.Control type="text" placeholder="Digite o complemento" name="complemento" minLength={5} maxLength={100} required/>
+                            <Form.Control type="text" placeholder="Digite o complemento" name="complemento" minLength={5} maxLength={100} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
@@ -70,7 +70,7 @@ function Cadastro() {
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>Imagem</Form.Label>
-                            <Form.Control type="string" id="urlImage" name="urlImage" min={1} required/>
+                            <Form.Control type="text" placeholder="Digite a URL da imagem" id="urlImage" name="urlImage" min={1} required/>
                         </Form.Group>
                     </Row>
 
