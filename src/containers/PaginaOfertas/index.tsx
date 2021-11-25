@@ -13,7 +13,7 @@ function RetornoLocacoes() {
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState(false);
   let filter = `/${searchFilter}/${searchField}`
-  const url = `https://airbnb-clone-desafio.herokuapp.com/api/locacao`;
+  const url = `https://airbnb-clone-desafio.herokuapp.com/api/locacao${filter}`;
   useEffect(() => {
     async function consultarLocacoes() {
       setErro(false);
