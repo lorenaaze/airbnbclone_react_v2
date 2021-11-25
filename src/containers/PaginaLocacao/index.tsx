@@ -90,7 +90,7 @@ import './style.css';
             </Modal.Header>
             <Modal.Body>
 
-            <form method="post" action={`http://localhost:5000/api/locacao/${findLocacao?._id}/deletarlocacao`} style={{ display: 'block', margin: '5rem 10rem' }}>
+            <form method="post" action={`https://airbnb-clone-desafio.herokuapp.com/api/locacao/${findLocacao?._id}/deletarlocacao`} style={{ display: 'block', margin: '5rem 10rem' }}>
                     <fieldset style={{margin: '2rem 0'}}>
                     <legend>Informe o CPF do proprietário:</legend>
                         <Row className="mb-3">
