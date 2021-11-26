@@ -128,7 +128,7 @@ import './style.css';
             </Modal.Header>
             <Modal.Body>
 
-            <form method="post" action={`http://localhost:5000/api/locacao/${findLocacao?._id}`} style={{ display: 'block', margin: '5rem 10rem' }}>
+            <form method="post" action={`http://localhost:5000/api/locacao/${findLocacao?._id}`} style={{ display: 'block' }}>
 
                     <fieldset>
                         <Form.Group className="mb-3" controlId="Title">
@@ -139,7 +139,8 @@ import './style.css';
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="check_in">
                                 <Form.Label>Data de entrada</Form.Label>
-                                <DatePicker 
+                                <DatePicker
+                                    minDate={new Date()}
                                     dateFormat="dd-MM-yyyy"
                                     selected={dateCheckIn} 
                                     onChange={(dateCheckIn: Date | null) => setDateCheckIn(dateCheckIn!)} 
