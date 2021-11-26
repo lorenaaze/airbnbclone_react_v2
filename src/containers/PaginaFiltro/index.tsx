@@ -76,12 +76,9 @@ function Filtros() {
             }}>
                 <Form.Select onChange={onChangeHandler} aria-label="Default select example">
                     <option>Selecione o estado</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="BA">Bahia</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="CE">Ceará</option>
-                    <option value="RJ">Rio de Janeiro</option>
+                    {ufs && ufs!.map((uf) =>
+                    <option value={uf}>{uf}</option>
+                    )}
                 </Form.Select>
                 <Form.Group>
                     <Form.Label>Digite o preço</Form.Label>
