@@ -52,6 +52,9 @@
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background-color: rgb(218, 218, 194);
   height: 5vh;
 }
