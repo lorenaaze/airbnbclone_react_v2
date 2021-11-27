@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import RetornoLocacao from "./containers/PaginaLocacao";
 import PaginaLogin from "./containers/PaginaLogin";
 import PaginaRegistroUsuario from "./containers/PaginaRegistroUsuario";
+import Filtros from './containers/PaginaFiltro';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,6 +26,7 @@ ReactDOM.render(
           <Route path="login" element={<PaginaLogin />} />
           <Route path="registrar" element={<PaginaRegistroUsuario />} />
           <Route path="*" element={<PaginaNaoEncontrada />} />
+          <Route path="/filtros" element={<Filtros/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
