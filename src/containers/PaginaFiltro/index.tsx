@@ -16,7 +16,7 @@ function Filtros() {
     const [erro, setErro] = useState(false);
     const [url, setUrl] = useState("");
     
-    const urlSelect = 'https://airbnb-clone-desafio.herokuapp.com/api/locacao/uf'
+    const urlSelect = 'https://airbnb-clone-desafio.herokuapp.com/api/locacao/ufs'
 
     useEffect(() => {
         async function consultarUfs() {
