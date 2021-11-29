@@ -84,7 +84,7 @@ function Filtros() {
                     <Form.Label>Digite o preço</Form.Label>
                     <Form.Control value={searchField} onChange={event => setSearchField(event.target.value)} placeholder="Preço em R$" type="number" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button style={{backgroundColor: "#ff385c", borderColor: "#ff385c", marginTop:"2rem"}} type="submit">
                     Buscar
                 </Button >
             </Form>

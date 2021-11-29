@@ -27,6 +27,7 @@ ReactDOM.render(
           <Route path="registrar" element={<PaginaRegistroUsuario />} />
           <Route path="*" element={<PaginaNaoEncontrada />} />
           <Route path="/filtros" element={<Filtros/>}/>
+          <Route path="filtros/:id" element={<RetornoLocacao/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

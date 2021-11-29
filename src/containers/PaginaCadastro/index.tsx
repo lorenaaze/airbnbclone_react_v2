@@ -5,7 +5,7 @@ import './style.css';
 function Cadastro() {
     return (
         <>
-            <form className="form-cadastro" method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem' }}
+            <form className="form-cadastro" method="post" action="https://airbnb-clone-desafio.herokuapp.com/api/locacao/criarlocacao" style={{ display: 'block', margin: '5rem 10rem', maxWidth:"75%" }}
             onSubmit={() => {
                 alert('Cadastro enviado com sucesso!')
             }}>
