@@ -57,8 +57,8 @@ function RetornoLocacoes() {
                           placeholder="Busque pelo estado (UF), cidade, capacidade ou preço:"
                           onChange={handleChange}/>
                           <select onChange={onChangeHandler}>
-                            <option value="uf">Estado</option>
-                            <option value="localidade">Cidade</option>
+                            <option value="ufs">Estado</option>
+                            <option value="localidades">Cidade</option>
                             <option value="capacidade">Capacidade</option>
                             <option value="preco">Preço</option>
                           </select>
