@@ -109,7 +109,7 @@ function App() {
         <Outlet />
       </main>
       <footer className="footer">
-        <p>Feito por Bruno, Liz e Lorena</p>
+        <p>Feito por Bruno, Liz e Lorena © {new Date().getFullYear()}</p>
       </footer>
     </>
   );

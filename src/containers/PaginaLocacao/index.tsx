@@ -128,7 +128,7 @@ import './style.css';
             </Modal.Header>
             <Modal.Body>
 
-            <form method="post" action={`http://localhost:5000/api/locacao/${findLocacao?._id}`} style={{ display: 'block' }}>
+            <form method="post" action={`https://airbnb-clone-desafio.herokuapp.com/api/locacao/${findLocacao?._id}`} style={{ display: 'block' }}>
 
                     <fieldset>
                         <Form.Group className="mb-3" controlId="Title">
