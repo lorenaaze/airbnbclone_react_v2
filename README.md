@@ -1,6 +1,6 @@
 ## :fire: O projeto
 
-[Airbnb Clone](https://airbnbclone-react.vercel.app/)
+[Airbnb Clone](https://airbnbclone-react-v2.vercel.app/)
 
 ### :rocket: Tecnologias Usadas
 
@@ -37,6 +37,11 @@ $ npm install
  - Card com retorno de Locações
  - Busca com filtro
  - Pequenas atualizações nos forms
+
+ ## Novas Funcionalidades
+ - Filtro realizado pelo back
+ - Filtro duplo por UF e preço
+ - Montante do preço na reserva
 
 # Getting Started with Create React App
 
